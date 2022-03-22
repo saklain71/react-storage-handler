@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CosmaticSingle from '../CosmeticSingle/CosmaticSingle';
-
+import './Cosmatic.css'
 const Cosmatic = () => {
 
 const [cosmetics, setCosmetic] = useState([]);
@@ -13,7 +13,7 @@ useEffect(()=>{
 
     return (
         
-        <div>
+        <div className='product'>
             <h1>welcome to my cosmetic Store</h1>
             {
                 cosmetics.map(cosmetic=> <CosmaticSingle 
