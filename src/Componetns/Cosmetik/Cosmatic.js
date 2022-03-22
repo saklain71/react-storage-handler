@@ -6,7 +6,7 @@ const Cosmatic = () => {
 const [cosmetics, setCosmetic] = useState([]);
 
 useEffect(()=>{
-    fetch('https://cosmeticss.free.beeceptor.com/')
+    fetch('data.json')
     .then(res=> res.json())
     .then(data => setCosmetic(data))
 },[])
