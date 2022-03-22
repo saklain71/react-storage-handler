@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CosmaticSingle from '../CosmeticSingle/CosmaticSingle';
 
 const Cosmatic = () => {
-const cosmetics =[
-    {id:1 , name: 'Lelpolish', price: 100},
-    {id:2 , name: 'Ponds', price: 200},
-    {id:3 , name: 'Cream', price: 300},
-    {id:4 , name: 'Jell', price: 400},
-    {id:5 , name: 'Kajol', price: 500}
-];
 
+const [cosmetics, setCosmetic] = useState([]);
+
+useEffect(()=>{
+    fetch('https://cosmeticss.free.beeceptor.com/')
+    .then(res=> res.json())
+    .then(data => setCosmetic(data))
+},[])
 
     return (
         
@@ -17,7 +17,7 @@ const cosmetics =[
             <h1>welcome to my cosmetic Store</h1>
             {
                 cosmetics.map(cosmetic=> <CosmaticSingle 
-                    key ={cosmetic.id}
+                    key ={cosmetic._id}
                     cosmetic={cosmetic}
                 ></CosmaticSingle>)
             }
